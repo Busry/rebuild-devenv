@@ -1,0 +1,45 @@
+{
+  "name": "rebuild-deve-nv",
+  "version": "1.0.0",
+  "description": "Create project folder and initialize it to be a git folder,That creates a local repo.\r Then create a remote repos from any provider and link the two repo up.",
+  "scripts": {
+    "prestart": "babel-node buildScripts/startMessage.js",
+    "start": "npm-run-all --parallel open:src lint:watch test:watch start-mockapi",
+    "open:src": "babel-node buildScripts/srcServer.js",
+    "lint": "esw webpack.config.* src buildScripts --color",
+    "lint:watch": "npm run lint -- --watch",
+    "security-check": "nsp check",
+    "localtunnel": "lt --port 3000",
+    "share": "npm-run-all --parallel open:src localtunnel",
+    "test": "mocha --reporter progress buildScripts/testSetup.js \"src/**/*.test.js\"",
+    "test:watch": "npm run test -- --watch",
+    "generate-mock-data": "babel-node buildScripts/generateMockData",
+    "prestart-mockapi": "npm run generate-mock-data",
+    "start-mockapi": "json-server --watch src/api/db.json --port 3001",
+    "clean-dist": "rimraf ./dist && mkdir dist",
+    "prebuild": "npm-run-all clean-dist test lint",
+    "build": "babel-node buildScripts/build.js",
+    "postbuild": "babel-node buildScripts/distServer.js",
+    "deploy": "surge ./dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Busry/rebuild-devenv.git"
+  },
+  "author": "Busry",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Busry/rebuild-devenv/issues"
+  },
+  "homepage": "https://github.com/Busry/rebuild-devenv#readme",
+  "main": "webpack.config.dev.js",
+  "keywords": [],
+  "dependencies": {
+    "whatwg-fetch": "^3.4.0"
+  },
+  "devDependencies": {
+    "autoprefixer-loader": "^3.2.0",
+    "express": "^4.17.1",
+    "open": "^7.2.1"
+  }
+}
