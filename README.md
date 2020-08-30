@@ -25,3 +25,23 @@ file in which the settings are writting.
 ```
 $ touch .editorconfig
 ```
+
+## Babel
+
+Allow for using latest js code for all browser platforms.
+
+```
+npm install --save-dev @babel/core @babel/node @babel/cli @babel/register @babel/preset-env
+```
+
+then create `.babelrc` file and then configure it e.g
+
+```
+{ "presets": ["@babel/preset-env"] }
+```
+
+after which you can now use `babel-node` from the npm scripts of `package.json` file to run .js files, this allows babel transpile the.js files first before passing it to node.
+
+```
+"open:src": "babel-node buildScripts/srcServer.js",
+```
