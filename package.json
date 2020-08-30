@@ -39,6 +39,7 @@
   },
   "devDependencies": {
     "autoprefixer-loader": "^3.2.0",
+    "chalk": "^4.1.0",
     "express": "^4.17.1",
     "open": "^7.2.1"
   }
