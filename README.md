@@ -16,3 +16,12 @@ $ git commit -m " initial commit"
 $ git push -u origin <local branch name>
 
 ```
+
+## Add .editorconfig
+
+install editorconfig in vsCode and then create .editorconfig
+file in which the settings are writting.
+
+```
+$ touch .editorconfig
+```
