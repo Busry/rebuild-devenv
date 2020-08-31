@@ -8,4 +8,4 @@ const options = {
   publicPath: config.output.publicPath,
 };
 
-module.exports = webpackDevMiddleware(compiler, options);
+export default webpackDevMiddleware(compiler, options);

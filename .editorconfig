@@ -8,6 +8,12 @@ end_of_line = lf
 charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = true
+# editorconfig-tools is unable to ignore longs strings or urls
+max_line_length = off
+singlequte = true
 
 [*.md]
 trim_trailing_whitespace = false
+
+[CHANGELOG.md]
+indent_size = false

@@ -90,3 +90,11 @@ export default {
 }
 
 ```
+
+install the following
+
+```
+npm i -D webpack webpack-dev middleware babel-loader css-loader style-loader
+```
+
+## Linting
